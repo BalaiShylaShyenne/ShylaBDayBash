@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Princess Shyla Turns One!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #fceff9, #fde2ff);
+      color: #a64ca6;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-top: 40px;
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px pink; }
+      50% { text-shadow: 0 0 25px fuchsia; }
+      100% { text-shadow: 0 0 10px pink; }
+    }
+
+    .line {
+      font-size: 1.5em;
+      margin: 12px 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .important {
+      background: #fff0f5;
+      border: 2px dashed #ff66b2;
+      padding: 15px;
+      margin: 25px auto;
+      width: 80%;
+      border-radius: 12px;
+      font-weight: bold;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ff99cc; }
+      100% { box-shadow: 0 0 25px #ff66b2; }
+    }
+
+    .button {
+      background-color: #ff99cc;
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin: 12px;
+      display: inline-block;
+      animation: glow 2s infinite;
+    }
+
+    #countdown {
+      font-size: 1.3em;
+      color: #ff3399;
+      margin: 20px 0;
+    }
+
+    .sparkle-up, .sparkle-down {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, white 40%, transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkleFloat linear infinite;
+    }
+
+    .sparkle-up {
+      top: 100%;
+      animation-name: sparkleFloatUp;
+    }
+
+    .sparkle-down {
+      top: -20px;
+      animation-name: sparkleFloatDown;
+    }
+
+    @keyframes sparkleFloatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes sparkleFloatDown {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>👑 Once Upon a Time...</h1>
+  <div class="line">In a land full of giggles and joy,</div>
+  <div class="line">A little princess named <strong>Shyla</strong> turned ONE!</div>
+  <br>
+  <div class="line">🎉 You're royally invited to her magical birthday celebration!</div>
+  <div class="line">📅 Date: September 6, 2025</div>
+  <div class="line">⏰ Time: 2:00 PM</div>
+  <div class="line">📍 Location: 102 Winjon Pl, La Plata, MD 20646</div>
+  <div class="line">📞 RSVP to Queen Mama Shyenne & King Papa Balai at 202-826-4452</div>
+
+  <div class="important">
+    💦 Splash Alert!<br>
+    Water slides & water bounce house await!<br>
+    Please bring swimsuits, towels & sunny smiles! 😎🩱🩳
+  </div>
+
+  <a href="https://www.amazon.com/registries/gl/guest-view/34DFHS9HVFD35?ref_=cm_sw_r_apin_ggr-subnav-share_PGG9N91NQ4NE3YPGZ3C0&language=en-US" class="button">🎁 View Shyla’s Gift Registry</a>
+
+  <div id="countdown">⏳ Countdown to the party: <span id="timer"></span></div>
+
+  <script>
+    // Countdown
+    const eventDate = new Date("2025-09-06T14:00:00").getTime();
+    const timerDisplay = document.getElementById("timer");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const remaining = eventDate - now;
+      const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      timerDisplay.innerText = `${days}d ${hours}h ${minutes}m`;
+    }, 1000);
+
+    // Sparkle magic
+    for (let i = 0; i < 30; i++) {
+      const sparkleUp = document.createElement('div');
+      sparkleUp.className = 'sparkle-up';
+      sparkleUp.style.left = Math.random() * window.innerWidth + 'px';
+      sparkleUp.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      document.body.appendChild(sparkleUp);
+
+      const sparkleDown = document.createElement('div');
+      sparkleDown.className = 'sparkle-down';
+      sparkleDown.style.left = Math.random() * window.innerWidth + 'px';
+      sparkleDown.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      document.body.appendChild(sparkleDown);
+    }
+  </script>
+</body>
+</html>
